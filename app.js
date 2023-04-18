@@ -1,19 +1,10 @@
 const express = require("express");
+const logger = require("morgan");
 const app = express();
 const port = 65352;
 
-app.get("/js/:file.js", (req, res) => {
-    res.sendFile(__dirname + `/views/js/${req.params.file}.js`);
-});
-
-app.get("/css/:file.css", (req, res) => {
-    res.sendFile(__dirname + `/views/css/${req.params.file}.css`);
-});
-
-// handle all image types
-app.get("/assets/:file.:type", (req, res) => {
-    res.sendFile(__dirname + `/views/assets/${req.params.file}.${req.params.type}`);
-});
+app.use(logger("dev"));
+app.use(express.static(__dirname + '/public'));
 
 app.get("/:page.:type", (req, res) => {
     if (!["html","htm","txt"].includes(req.params.type)) {
