@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game #273941323</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Ubuntu&family=Quicksand&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="https://kit.fontawesome.com/eacf9515eb.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link defer rel="stylesheet" href="css/login.css">
+</head>
+
+<body>
+    <nav class="nav-extended">
+        <div class="nav-wrapper">
+            <a href="index.html" class="brand-logo"><i class="fa-solid fa-chess-king"></i>Check-urs.com</a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="index.html"><i class="material-icons left">home</i> Home</a></li>
+                <li><a href="play.html"><i class="material-icons left">flag</i> Play now!</a></li>
+                <li><a href="login.html"><i class="material-icons left">person</i> Login</a></li>
+                <li><a href="dashboard.html"><i class="material-icons left">dashboard</i> My Games</a></li>
+            </ul>
+        </div>
+    </nav>
+    <ul class="right sidenav" id="mobile-demo">
+        <li><a href="index.html"><i class="material-icons left">home</i> Home</a></li>
+        <li><a href="play.html"><i class="material-icons left">flag</i> Play now!</a></li>
+        <li><a href="login.html"><i class="material-icons left">person</i> Login</a></li>
+        <li><a href="dashboard.html"><i class="material-icons left">dashboard</i> My Games</a></li>
+    </ul>
+    
+    <div class="container  big-round-section white-text">
+        <h3>Game #{2943}</h3>
+        <hr class="red-text">
+        <h5>{Won} against {Player}</h5>
+        <p>Played on {2022-01-01} at {12:12:43 PM}</p>
+        <blockquote>
+            <p>93 moves made</p>
+            <p>3 kings promoted</p>
+            <p>2 tears shed</p>
+        </blockquote>
+    </div>
+    <div class="row">
+        <a href="#edit" class="modal-trigger scale-transition waves-effect waves-light teal white-text btn-large col s1 offset-s10 btn-flat">
+            <i class="material-icons left">edit</i>
+            Edit
+        </a>
+    </div>
+    <section id="edit" class="container deep-orange lighten-2 modal black-text">
+        <div class="modal-content">
+            <form class="black-text">
+                <div class="row">
+                    <div class="col s8 offset-s2">
+                        <label for="outcome">Outcome</label>
+                        <select id="outcome" name="outcome">
+                            <option value="win">Win</option>
+                            <option value="loss">Loss</option>
+                            <option value="draw">Draw</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s8 offset-s2">
+                        <label for="opponent">Opponent</label>
+                        <input type="text" name="opponent" placeholder="Opponent">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s3 offset-s2">
+                        <label for="date">Date</label>
+                        <input type="date" name="date">
+                    </div>
+                    <div class="col s3 offset-s2">
+                        <label for="time">Time</label>
+                        <input type="time" name="time">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s8 offset-s2">
+                        <label for="moves">Moves</label>
+                        <input type="number" name="moves" placeholder="Moves">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s8 offset-s2">
+                        <label for="promotions">Promotions</label>
+                        <input type="number" name="promotions" placeholder="">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s8 offset-s2">
+                        <label for="tears">Tears</label>
+                        <input type="number" name="tears" placeholder="">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s8 offset-s2">
+                        <button class="btn waves-effect waves-light" type="submit">
+                            <i class="material-icons right">send</i>
+                            Submit
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="js/init.js" defer></script>
+</body>
+</html>
