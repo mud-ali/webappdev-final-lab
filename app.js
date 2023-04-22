@@ -7,7 +7,10 @@ app.use(logger("dev"));
 app.use(express.static(__dirname + '/public'));
 
 app.get("/:page", (req, res) => {
-    res.sendFile(__dirname + `/views/${req.params.page}.html`);
+    let allowedPages = ["dashboard", "detail", "index", "login", "play", "signup"]
+    if (!allowedPages.includes(req.params.page))
+        res.sendFile(__dirname + "/views/index.html");
+    else res.sendFile(__dirname + `/views/${req.params.page}.html`);
 });
 
 app.get("/", (req, res) => {
