@@ -42,6 +42,7 @@ function getPossibleMoves(piece, row, col) {
     }
     return possibleMoves;
 }
+
 function getDistance(row1, col1, row2, col2) {
     let distanceX = Math.abs(row1 - row2);
     let distanceY = Math.abs(col1 - col2);
@@ -95,5 +96,6 @@ function draw(board, pattern) {
 }
 function init() {
     draw(document.getElementById("board"), boardPattern);
+    console.warn(getDistance(1,1)==1);
 }
 window.onload = init;
