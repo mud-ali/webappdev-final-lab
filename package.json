@@ -4,19 +4,27 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js",
+    "devstart": "nodemon -e js,ejs,sql,env app.js",
+    "dbcreate": "node db/db_init.js",
+    "dbsample": "node db/db_insert_data.js",
+    "dbprint": "node db/db_print.js",
+    "devstart-fresh": "npm-run-all dbcreate dbsample dbprint devstart"
   },
   "author": "mudasir",
   "license": "MIT",
   "dependencies": {
     "dotenv": "^16.0.3",
+    "ejs": "^3.1.9",
     "express": "^4.18.2",
     "morgan": "^1.10.0",
-    "mysql2": "^3.2.4"
+    "mysql2": "^3.2.4",
+    "npm-run-all": "^4.1.5"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.59.6",
     "@typescript-eslint/parser": "^5.59.6",
-    "eslint": "^8.40.0"
+    "eslint": "^8.40.0",
+    "nodemon": "^2.0.22"
   }
 }

@@ -14,8 +14,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <script src="https://kit.fontawesome.com/eacf9515eb.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/style.css">
-    <link defer rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link defer rel="stylesheet" href="/css/login.css">
 </head>
 
 <body>
@@ -25,28 +25,28 @@
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
                 <li><a href="/"><i class="material-icons left">home</i> Home</a></li>
-                <li><a href="play"><i class="material-icons left">flag</i> Play now!</a></li>
-                <li><a href="login"><i class="material-icons left">person</i> Login</a></li>
-                <li><a href="dashboard"><i class="material-icons left">dashboard</i> My Games</a></li>
+                <li><a href="/play"><i class="material-icons left">flag</i> Play now!</a></li>
+                <li><a href="/login"><i class="material-icons left">person</i> Login</a></li>
+                <li><a href="/dashboard"><i class="material-icons left">dashboard</i> My Games</a></li>
             </ul>
         </div>
     </nav>
     <ul class="right sidenav" id="mobile-demo">
         <li><a href="/"><i class="material-icons left">home</i> Home</a></li>
-        <li><a href="play"><i class="material-icons left">flag</i> Play now!</a></li>
-        <li><a href="login"><i class="material-icons left">person</i> Login</a></li>
-        <li><a href="dashboard"><i class="material-icons left">dashboard</i> My Games</a></li>
+        <li><a href="/play"><i class="material-icons left">flag</i> Play now!</a></li>
+        <li><a href="/login"><i class="material-icons left">person</i> Login</a></li>
+        <li><a href="/dashboard"><i class="material-icons left">dashboard</i> My Games</a></li>
     </ul>
     
     <div class="container  big-round-section white-text">
-        <h3>Game #{2943}</h3>
+        <h3>Game # <%= game.id %> </h3>
         <hr class="red-text">
-        <h5>{Won} against {Player}</h5>
-        <p>Played on {2022-01-01} at {12:12:43 PM}</p>
+        <h5><%= game.winner %></h5>
+        <p>Played on <%= game.date %> at <%= game.time %></p>
         <blockquote>
-            <p>93 moves made</p>
-            <p>3 kings promoted</p>
-            <p>2 tears shed</p>
+            <p><%= game.moves %> moves made</p>
+            <p><%= game.red_kings + game.black_kings %> kings promoted</p>
+            <p><%= game.tears %> tears shed</p>
         </blockquote>
     </div>
     <div class="row">
@@ -114,6 +114,6 @@
         </div>
     </section>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="js/init.js" defer></script>
+    <script src="/js/init.js" defer></script>
 </body>
 </html>
