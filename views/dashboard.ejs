@@ -53,15 +53,16 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <% for (let i=0;i<games.length;i++) { %>
                     <tr>
-                        <td>1</td>
-                        <td>09/23/2022</td>
-                        <td>2:30:43 PM</td>
-                        <td>93</td>
-                        <td>Mudasir</td>
-                        <td>Win</td>
+                        <td> <%= games[i].id %> </td>
+                        <td> <%= games[i].date %> </td>
+                        <td> <%= games[i].time %> </td>
+                        <td> <%= games[i].moves %> </td>
+                        <td> <%= games[i].opponent %> </td>
+                        <td> <%= games[i].winner %> </td>
                         <td>
-                            <a class="btn-small waves-effect waves-light" href="detail">
+                            <a class="btn-small waves-effect waves-light" href="<%= "/detail/"+games[i].id%>">
                                 <i class="material-icons right">edit</i>
                                 Info/Edit
                             </a>
@@ -71,44 +72,7 @@
                             </a>
                         </td>
                     </tr>
-
-                    <tr>
-                        <td>2</td>
-                        <td>10/23/2022</td>
-                        <td>12:18:43 AM</td>
-                        <td>86</td>
-                        <td>Joe</td>
-                        <td>Win</td>
-                        <td>
-                            <a class="btn-small waves-effect waves-light" href="detail">
-                                <i class="material-icons right">edit</i>
-                                Info/Edit
-                            </a>
-                            <a class="btn-small waves-effect waves-light red">
-                                <i class="material-icons right">delete</i>
-                                Delete
-                            </a>
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td>3</td>
-                        <td>04/13/2023</td>
-                        <td>5:16:28 PM</td>
-                        <td>113</td>
-                        <td>Anonymous</td>
-                        <td>Loss</td>
-                        <td>
-                            <a class="btn-small waves-effect waves-light" href="detail">
-                                <i class="material-icons right">edit</i>
-                                Info/Edit
-                            </a>
-                            <a class="btn-small waves-effect waves-light red">
-                                <i class="material-icons right">delete</i>
-                                Delete
-                            </a>
-                        </td>
-                    </tr>
+                    <% }%>
                 </tbody>
             </table>
         </div>
