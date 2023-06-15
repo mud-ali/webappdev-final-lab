@@ -43,7 +43,7 @@
             <table>
                 <thead>
                     <tr>
-                        <th>#&nbsp;&nbsp;</th>
+                        <!-- <th>#&nbsp;&nbsp;</th> -->
                         <th>Date</th>
                         <th>Time</th>
                         <th>Moves</th>
@@ -55,7 +55,7 @@
                 <tbody>
                     <% for (let i=0;i<games.length;i++) { %>
                     <tr>
-                        <td> <%= games[i].id %> </td>
+                        <!-- <td> <%= games[i].id %> </td> -->
                         <td> <%= games[i].date %> </td>
                         <td> <%= games[i].time %> </td>
                         <td> <%= games[i].moves %> </td>
@@ -66,7 +66,7 @@
                                 <i class="material-icons right">edit</i>
                                 Info/Edit
                             </a>
-                            <a class="btn-small waves-effect waves-light red">
+                            <a class="btn-small waves-effect waves-light red" href="<%= "/detail/"+games[i].id+"/delete" %>">
                                 <i class="material-icons right">delete</i>
                                 Delete
                             </a>
@@ -92,7 +92,7 @@
           
     <section id="new" class="container deep-orange lighten-2 modal black-text">
         <div class="modal-content">
-            <form class="black-text">
+            <form class="black-text" method="post">
                 <div class="row">
                     <div class="col s8 offset-s2">
                         <label for="outcome">Outcome</label>
@@ -106,17 +106,13 @@
                 <div class="row">
                     <div class="col s8 offset-s2">
                         <label for="opponent">Opponent</label>
-                        <input type="text" name="opponent" placeholder="Opponent">
+                        <input type="number" name="opponent" placeholder="Opponent ID">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col s3 offset-s2">
-                        <label for="date">Date</label>
-                        <input type="date" name="date">
-                    </div>
-                    <div class="col s3 offset-s2">
                         <label for="time">Time</label>
-                        <input type="time" name="time">
+                        <input type="datetime-local" name="time">
                     </div>
                 </div>
                 <div class="row">
@@ -124,11 +120,16 @@
                         <label for="moves">Moves</label>
                         <input type="number" name="moves" placeholder="Moves">
                     </div>
+                    <div class="col s8 offset-s2">
+                        <label for="duration">Duration</label>
+                        <input type="number" name="duration" placeholder="Duration">
+                    </div>
                 </div>
                 <div class="row">
                     <div class="col s8 offset-s2">
-                        <label for="promotions">Promotions</label>
-                        <input type="number" name="promotions" placeholder="">
+                        <label for="promotions_red">Promotions</label>
+                        <input type="number" name="promotions_red" placeholder="Red">
+                        <input type="number" name="promotions_black" placeholder="Black">
                     </div>
                 </div>
                 <div class="row">

@@ -9,6 +9,7 @@ const db = require("./db/db_connection");
 
 app.use(logger("dev"));
 app.use(express.static(__dirname + "/public"));
+app.use( express.urlencoded({ extended: false }) );
 app.set("views", __dirname + "/views");
 app.set("view engine", "ejs" );
 
@@ -36,6 +37,40 @@ app.get("/detail/:gameId", (req, res)=>{
             res.status(404).send(`No game found with id = "${req.params.gameId}"` );
         res.render("detail", {game: data[0]});
     });
+});
+
+app.get("/detail/:gameId/delete", (req, res)=>{
+    const deleteGameQuery = readFileSync(__dirname+"/db/sql/delGame.sql").toString();
+    db.execute(deleteGameQuery, [req.params.gameId], (err, data)=>{
+        if (DEBUG) console.log(err ? err : data);
+        if (err) res.status(500).send(err);
+        res.redirect("/dashboard");
+    });
+});
+
+app.post("/dashboard", (req, res)=>{
+    const insertGameQuery = readFileSync(__dirname+"/db/sql/iGames.sql").toString();
+    const r = req.body;
+    const params = [r.moves, 1, r.opponent, r.outcome == "win" ? 1 : (r.outcome == "loss" ? r.opponent : null),
+         r.time,r.duration,r.promotions_black, r.promotions_red, r.tears];
+    db.execute(insertGameQuery, params, (err, data)=>{
+        if (DEBUG) console.log(err ? err : data);
+        if (err) res.status(500).send(err);
+        res.redirect(`/detail/${data.insertId}`);
+    });
+});
+
+app.post("/dashboard/:id", (req, res)=>{
+    const updateGameQuery = readFileSync(__dirname+"/db/sql/updateGame.sql").toString();
+    const r = req.body;
+    let params = [r.moves, 1, r.opponent, r.outcome == "win" ? 1 : (r.outcome == "loss" ? r.opponent : null),
+            r.time,r.duration,r.promotions_black, r.promotions_red, r.tears, req.params.id];
+    params = params.map((p)=>p==""||p==undefined?null:p);
+    db.execute(updateGameQuery, params, (err, data)=>{
+        if (DEBUG) console.log(err ? err : data);
+        if (err) res.status(500).send(err);
+    });
+    res.redirect(`/detail/${req.params.id}`);
 });
 
 app.get("/:page", (req, res) => {

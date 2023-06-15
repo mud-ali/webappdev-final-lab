@@ -57,49 +57,46 @@
     </div>
     <section id="edit" class="container deep-orange lighten-2 modal black-text">
         <div class="modal-content">
-            <form class="black-text">
+            <form class="black-text" method="post" action="/dashboard/<%=game.id%>">
                 <div class="row">
                     <div class="col s8 offset-s2">
                         <label for="outcome">Outcome</label>
                         <select id="outcome" name="outcome">
                             <option value="win">Win</option>
                             <option value="loss">Loss</option>
-                            <option value="draw">Draw</option>
+                            <option selected value="draw">Draw</option>
                         </select>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col s8 offset-s2">
                         <label for="opponent">Opponent</label>
-                        <input type="text" name="opponent" placeholder="Opponent">
+                        <input type="text" name="opponent" placeholder="Opponent" value="<%= game.opponent_id%>">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col s3 offset-s2">
                         <label for="date">Date</label>
-                        <input type="date" name="date">
-                    </div>
-                    <div class="col s3 offset-s2">
-                        <label for="time">Time</label>
-                        <input type="time" name="time">
+                        <input type="datetime-local" name="time" value="<%= game.start_time %>">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col s8 offset-s2">
                         <label for="moves">Moves</label>
-                        <input type="number" name="moves" placeholder="Moves">
+                        <input type="number" name="moves" placeholder="Moves" value="<%= game.moves %>">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col s8 offset-s2">
-                        <label for="promotions">Promotions</label>
-                        <input type="number" name="promotions" placeholder="">
+                        <label for="promotions_red">Promotions</label>
+                        <input type="number" name="promotions_red" placeholder="Red" value="<%= game.red_kings%>">
+                        <input type="number" name="promotions_black" placeholder="Black" value="<%= game.black_kings%>">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col s8 offset-s2">
                         <label for="tears">Tears</label>
-                        <input type="number" name="tears" placeholder="">
+                        <input type="number" name="tears" placeholder="" value="<%= game.tears %>">
                     </div>
                 </div>
                 <div class="row">
